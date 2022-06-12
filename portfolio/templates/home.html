@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<!-- <header class="row p-4 mb-4 bg-black rounded-4 border-bottom border-start border-info border-opacity-75 "> -->
+<header class="row bg-black">
+    <div class="col-md-4 p-4">
+        <img src="{% static 'portfolio/Kambo_smal.jpg' %}" alt="" class="img-fluid">
+        <!-- <div class="card-body">
+            
+        </div> -->
+
+    </div>
+    <div class="col-md-8 my-auto pe-4" style="text-align: justify; ">
+        <h1>I am <strong>Kambo</strong></h1>
+        <h3>I am a Python FullStack Developer. I love to learn new things.</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro iste reprehenderit voluptates explicabo nulla
+            tempora fugit aspernatur nihil aut, ab ducimus sapiente numquam accusamus quis minima praesentium error
+            assumenda magnam voluptatem quam eligendi at. Illo perferendis tempora, dolor hic veritatis aperiam maiores
+            dicta excepturi distinctio nemo magnam iste laudantium dolorem praesentium inventore voluptas nobis
+            consequatur quia officiis expedita, reprehenderit provident necessitatibus? </p>
+        <a href="{% static 'portfolio/CV.pdf' %}" class="btn btn-primary btn-lg rounded-0 my-3" target="_blank">Download
+            CV</a>
+    </div>
+</header>
+<!-- <pre>{{proyects}}</pre> -->
+<div class="row my-4 text-center">
+    <h3>My Projects</h3>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, quia!</p>
+
+    {% for proyect in proyects %}
+    <div class="col-md-4 p-4">
+        <!-- div class="card bg-black border-warning border-start border-bottom "> -->
+        <!-- <div class="card bg-black rounded-4  "> -->
+        <div class="card bg-black card-project">
+            <img src="{{proyect.image.url}}" alt="{{proyect.title}}" class="card-img-top" />
+            <!-- <div class="card-body rounded-4 border-bottom border-start border-info border-opacity-75"> -->
+            <div class="card-body">
+                <h2>{{proyect.title}}</h2>
+                <p>{{proyect.description}}</p>
+
+
+                {% if proyect.url %}
+                <a href="{{proyect.url}}" class="btn btn.light rounded-0 btn-sm" target="_blank">{{proyect.url}}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+
+    {% endfor %}
+
+    {% endblock %}
+</div>
